@@ -2,24 +2,25 @@
 # To extract a set a sequence from a multi-fasta file, do:
 $ seqtk subseq your.input.fasta the_header_of_interest_IDs.list > your_output.fasta
 
-Introduction
+# Introduction
 Seqtk is a fast and lightweight tool for processing sequences in the FASTA or FASTQ format. It seamlessly parses both FASTA and FASTQ files which can also be optionally compressed by gzip. To install seqtk,
 
 git clone https://github.com/lh3/seqtk.git;
-cd seqtk; make
+### cd seqtk; make
 The only library dependency is zlib.
 
 Seqtk Examples
 Convert FASTQ to FASTA:
 
-  seqtk seq -a in.fq.gz > out.fa
+  ``seqtk seq -a in.fq.gz > out.fa
+
 Convert ILLUMINA 1.3+ FASTQ to FASTA and mask bases with quality lower than 20 to lowercases (the 1st command line) or to N (the 2nd):
 
-  seqtk seq -aQ64 -q20 in.fq > out.fa
-  seqtk seq -aQ64 -q20 -n N in.fq > out.fa
+  ``seqtk seq -aQ64 -q20 in.fq > out.fa
+  ``seqtk seq -aQ64 -q20 -n N in.fq > out.fa
 Fold long FASTA/Q lines and remove FASTA/Q comments:
 
-  seqtk seq -Cl60 in.fa > out.fa
+  ``seqtk seq -Cl60 in.fa > out.fa
 Convert multi-line FASTQ to 4-line FASTQ:
 
   seqtk seq -l0 in.fq > out.fq
